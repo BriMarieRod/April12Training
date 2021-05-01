@@ -6,4 +6,8 @@ public class Car {
 		return milesDriven / gallonsConsumed;
 	}
 	
+	static float ComputeEconomy(int kilometersDriven, int litersConsumed) {
+		return kilometersDriven / litersConsumed;
+	}
+	
 }
