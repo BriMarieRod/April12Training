@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 class CarTests {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void CanComputeEconomyImperial() {
+		assertEquals(31.2, Car.ComputeEconomy((short)312, (short)10));
 	}
 
 }
