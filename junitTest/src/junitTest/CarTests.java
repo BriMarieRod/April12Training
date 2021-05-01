@@ -12,6 +12,13 @@ class CarTests {
 		testCar.setNumberOfSeats(4);
 		assertEquals(4, testCar.getNumberOfSeats());
 	}
+	
+	@Test
+	void CanSetGetNumberOfSeatsOfElectricCar() {
+		Car testCar = new ElectricCar();
+		testCar.setNumberOfSeats(2);
+		assertEquals(2, testCar.getNumberOfSeats());
+	}
 
 	@Test
 	void CanComputeEconomyImperial() {
