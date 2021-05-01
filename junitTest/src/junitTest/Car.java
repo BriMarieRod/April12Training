@@ -13,11 +13,11 @@ public class Car {
 	}
 
 	static float ComputeEconomy(short milesDriven, short gallonsConsumed) {
-		return milesDriven / gallonsConsumed;
+		return (float)milesDriven / (float)gallonsConsumed;
 	}
 	
 	static float ComputeEconomy(int kilometersDriven, int litersConsumed) {
-		return kilometersDriven / litersConsumed;
+		return (float)kilometersDriven / (float)litersConsumed;
 	}
 	
 }
