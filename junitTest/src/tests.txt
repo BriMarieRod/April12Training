@@ -1,0 +1,40 @@
+Functional Test 1:
+
+User should be able to Add to Cart
+
+Precondition: User needs to be viewing an item that is in stock.
+Steps: Select quantity to be added to cart, click "Add to Cart" button.
+Expected result: The item(s) should be added to the user's cart.
+
+
+Functional Test 2:
+
+User should be able to write a review.
+
+Preconditions: User must be logged in and viewing an item that they have previously purchased.
+Steps: Click "Write a customer review" button, enter desired text, submit review.
+Expected result: The user's review should show up on the item's page in the reviews section.
+
+
+Non-functional Test 1:
+
+Website should load quickly
+
+Steps: Begin loading the website, time how long it takes for website to finish loading.
+Expected result: The time taken to load should be within the desired timeframe.
+
+
+Non-functional Test 2:
+
+Website should continue to function consistenly during spikes of activity.
+
+Steps: Monitor performance while a higher than usual number of requests are received by the website.
+Expected result: The website should experience little to no slow-down.
+
+
+White Box Test:
+
+The total calulated price of the items in cart should be the correct sum of each of the prices.
+
+Steps: Create tests for the function(s) responsible for calculating the total price to compare the return value of the function(s) to the expected output.
+Expected result: The test case should pass with the function(s) returnin the correct values.
