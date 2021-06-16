@@ -73,5 +73,19 @@ public class ReqresTests {
 		RestAssured.patch(path).then().body(jsonPath, notNullValue());
 		
 	}
+	
+	@Test
+	public void ensurePutTimestampUpdated() {
+		
+		String path = "api/users/2";
+		String newName = "morpheus2";
+		String jsonPath = "updatedAt";
+		
+		JSONObject json = new JSONObject();
+		json.put("name", newName);
+		
+		RestAssured.put(path).then().body(jsonPath, notNullValue());
+		
+	}
 
 }
