@@ -1,11 +1,12 @@
 package tests;
 
+import static org.hamcrest.Matchers.equalTo;
+
+import org.json.JSONObject;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
-
-import static org.hamcrest.Matchers.equalTo;
 
 public class ReqresTests {
 
@@ -26,6 +27,27 @@ public class ReqresTests {
 
 		RestAssured.get(path).then().body(jsonPath, equalTo(expectedEmail));
 
+	}
+	
+	@Test
+	public void verifyTokenReturnValue() {
+		
+		String path = "api/login";
+		String email = "eve.holt@reqres.in";
+		String password = "cityslicka";
+		String jsonPath = "token";
+		
+		String expectedToken = "QpwL5tke4Pnpja7X4";
+		
+		JSONObject json = new JSONObject();
+		json.put("email", email);
+		json.put("password", password);
+		
+		RestAssured
+		.given().contentType("application/json").body(json.toString())
+		.when().post(path)
+		.then().body(jsonPath, equalTo(expectedToken));
+		
 	}
 
 }
