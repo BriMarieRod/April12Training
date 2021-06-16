@@ -1,6 +1,7 @@
 package tests;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 import org.json.JSONObject;
 import org.testng.annotations.BeforeTest;
@@ -56,6 +57,20 @@ public class ReqresTests {
 		String path = "api/users/2";
 		
 		RestAssured.delete(path).then().statusCode(204); // Status code 204 = No Content
+		
+	}
+	
+	@Test
+	public void ensurePatchTimestampUpdated() {
+		
+		String path = "api/users/2";
+		String newName = "morpheus2";
+		String jsonPath = "updatedAt";
+		
+		JSONObject json = new JSONObject();
+		json.put("name", newName);
+		
+		RestAssured.patch(path).then().body(jsonPath, notNullValue());
 		
 	}
 
