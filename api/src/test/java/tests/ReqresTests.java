@@ -49,5 +49,14 @@ public class ReqresTests {
 		.then().body(jsonPath, equalTo(expectedToken));
 		
 	}
+	
+	@Test
+	public void verifyDeleteResponseCode() {
+		
+		String path = "api/users/2";
+		
+		RestAssured.delete(path).then().statusCode(204);
+		
+	}
 
 }
