@@ -55,7 +55,7 @@ public class ReqresTests {
 		
 		String path = "api/users/2";
 		
-		RestAssured.delete(path).then().statusCode(204);
+		RestAssured.delete(path).then().statusCode(204); // Status code 204 = No Content
 		
 	}
 
