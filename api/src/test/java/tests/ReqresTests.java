@@ -3,7 +3,12 @@ package tests;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -123,6 +128,30 @@ public class ReqresTests {
 		assertEquals(actualLastName, expectedLastName);
 		assertEquals(actualAvatar, expectedAvatar);
 
+	}
+	
+	@Test
+	public void canDeserializeUserList() {
+		
+		String response = RestAssured.get("api/users").body().asString();
+		JSONObject jsonResponse = new JSONObject(response);
+		JSONArray usersData = jsonResponse.getJSONArray("data");
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<User> userList = new ArrayList<User>();
+		
+		for(int i = 0; i < usersData.length(); i++) {
+			User newUser = null;
+			try {
+				newUser = objectMapper.readValue(usersData.get(i).toString(), User.class);
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			userList.add(newUser);
+		}
+		
+		assertTrue(userList.size() > 0);
+		
 	}
 
 }
